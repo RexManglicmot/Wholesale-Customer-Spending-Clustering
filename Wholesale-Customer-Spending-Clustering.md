@@ -18,12 +18,19 @@ Rex Manglicmot
 -   <a href="#clustering" id="toc-clustering">Clustering</a>
 -   <a href="#limitations" id="toc-limitations">Limitations</a>
 -   <a href="#conclusions" id="toc-conclusions">Conclusions</a>
+-   <a href="#appendix" id="toc-appendix">Appendix</a>
 -   <a href="#inspiration-for-this-project"
     id="toc-inspiration-for-this-project">Inspiration for this project</a>
 
 ## Status: Continuing Working Document
 
 ## Introduction
+
+<center>
+
+![](https://bestlifeonline.com/wp-content/uploads/sites/3/2018/10/costco-shopping-aisle.jpg?quality=82&strip=1&resize=1250%2C702)
+
+</center>
 
 1)  FRESH: annual spending (m.u.) on fresh products (Continuous);
 2)  MILK: annual spending (m.u.) on milk products (Continuous);
@@ -139,10 +146,10 @@ How much do people spend on fresh versus frozen? Let’s display it.
 ``` r
 #fresh and frozen scatterplot
 ggplot(data, aes(fres, fro)) +
-  geom_point(position = 'jitter', alpha=0.5, color= 'blue') +
+  geom_point(position = 'jitter', alpha=0.5, color= '#FFBF00') +
   scale_y_continuous(trans = 'log10', labels = dollar) +
   scale_x_continuous(trans = 'log10', labels = dollar) +
-  stat_ellipse(level = .99, color = "green") +
+  stat_ellipse(level = .99, color = "blue") +
   theme_classic()+
 labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
      x = 'Fresh Food Spending',
@@ -154,12 +161,31 @@ labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
 ![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
-#detergeents and delicacies
-ggplot(data, aes(depa, deli)) +
-  geom_point(position = 'jitter', alpha=.5, color = 'red') +
+#2d density estimation
+ggplot(data, aes(fres, fro)) +
+  geom_point(alpha = 0.5, color = '#FFBF00', position = 'jitter') +
   scale_y_continuous(trans = 'log10', labels = dollar) +
   scale_x_continuous(trans = 'log10', labels = dollar) +
-  stat_ellipse(level = .99, color = "green") +   
+  geom_density_2d() +
+  theme_classic() +labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
+     x = 'Fresh Food Spending',
+     y = 'Frozen Food Spending') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+How much do people spend on detergents (non-foods) versus delicacies
+(food)? Let’s display it.
+
+``` r
+#detergeents and delicacies
+ggplot(data, aes(depa, deli)) +
+  geom_point(position = 'jitter', alpha=.5, color = '#E34234') +
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+  stat_ellipse(level = .99, color = "blue") +   
   theme_classic() +
 labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
      x = 'Detergent Spending',
@@ -168,12 +194,92 @@ labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
         plot.caption = element_text(hjust = 0.5))
 ```
 
-![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+#2d density estimation
+ggplot(data, aes(depa, deli)) +
+  geom_point(position = 'jitter', alpha=.5, color = '#E34234')+
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+  geom_density_2d() +
+  theme_classic() +
+  labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
+     x = 'Detergent Spending',
+     y = 'Delicacy Spending') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+How much do people spend on milk?
+
+``` r
+#create a histogram
+ggplot(data, aes(milk)) +
+  geom_histogram(color='#6E260E', fill = '#964B00') +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+  theme_classic() +
+  labs(title = 'Wholesale Consumer Spending Milk',
+     x = 'Milk Spending',
+     y = 'Count') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+``` r
+ggplot(data, aes(milk, groc)) +
+  geom_bin2d(bins = 20, color ="white")+
+  scale_fill_gradient(low =  "#F2D2BD", high = "#FF00FF")+
+  theme_minimal() +
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+    theme_classic() +
+   labs(title = 'Wholesale Consumer Spending Milk versus Grocery',
+     x = 'Milk Spending',
+     y = 'Gorcery Spending') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+``` r
+ggplot(data, aes(milk, fro)) +
+  geom_bin2d(bins = 20, color ="white")+
+  scale_fill_gradient(low =  "#B6D0E2", high = "#6E260E")+
+  theme_minimal() +
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+    theme_classic() +
+     labs(title = 'Wholesale Consumer Spending Milk versus Frozen',
+     x = 'Milk Spending',
+     y = 'Frozen Spending') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ## Clustering
 
 ## Limitations
 
 ## Conclusions
+
+## Appendix
+
+``` r
+ggplot(data, aes(x=milk, y=groc, size=fres)) +
+  geom_point(position='jitter', alpha=.5, color='#1E8449') +
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+    theme_classic() 
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ## Inspiration for this project
