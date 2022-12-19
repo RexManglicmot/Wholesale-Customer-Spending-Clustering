@@ -1,0 +1,135 @@
+---
+title: "Wholesale Customer Spending Clustering"
+author: "Rex Manglicmot"
+date: "2022-12-19"
+output: 
+  github_document: 
+    toc: yes
+
+---
+
+## Status: Continuing Working Document
+
+## Introduction
+
+1) FRESH: annual spending (m.u.) on fresh products (Continuous);
+2) MILK: annual spending (m.u.) on milk products (Continuous);
+3) GROCERY: annual spending (m.u.)on grocery products (Continuous);
+4) FROZEN: annual spending (m.u.)on frozen products (Continuous)
+5) DETERGENTS_PAPER: annual spending (m.u.) on detergents and paper products (Continuous)
+6) DELICATESSEN: annual spending (m.u.)on and delicatessen products (Continuous);
+7) CHANNEL: customersâ€™ Channel - Horeca (Hotel/Restaurant/CafÃ©) or Retail channel (Nominal)
+8) REGION: customersâ€™ Region â€“ Lisnon, Oporto or Other (Nominal)
+Descriptive Statistics:
+
+(Minimum, Maximum, Mean, Std. Deviation)
+FRESH ( 3, 112151, 12000.30, 12647.329)
+MILK (55, 73498, 5796.27, 7380.377)
+GROCERY (3, 92780, 7951.28, 9503.163)
+FROZEN (25, 60869, 3071.93, 4854.673)
+DETERGENTS_PAPER (3, 40827, 2881.49, 4767.854)
+DELICATESSEN (3, 47943, 1524.87, 2820.106)
+
+## Loading the Libraries
+```{r, message=FALSE, warning=FALSE}
+#load libraries
+library(tidyverse)
+library(janitor)
+library(scales)
+library(ggplot2)
+
+```
+
+
+
+## Loading the Data
+```{r}
+#load csv file from the UCI website and store it into an object
+data_orig <- read.csv('Wholesale customers data.csv')
+
+#view first few rows of the data
+head(data_orig)
+```
+## Cleaning the Data
+```{r}
+#make a copy
+data <- data_orig
+
+#make the columns to lowercase
+data <- janitor::clean_names(data)
+
+#get rid of the categorical variables since clustering deals with continuous variables
+data <- data[,-c(1,2)]
+
+#change column names to something shorter
+colnames(data) <- c("fres", "milk", "groc", "fro", "depa", "deli")
+```
+
+```{r}
+#check for NAs
+sum(is.na(data))
+
+#check for blanks
+sum(data =='')
+
+# one more check for blanks
+which(data =='', arr.ind=TRUE)
+
+#one last check
+summary(data)
+```
+Great we see there are no characters or letters in our dataset since having one would throw off the summary function. 
+
+## Exploratory Data Analysis
+
+How much do people spend on fresh versus frozen? Let's display it. 
+```{r}
+#fresh and frozen scatterplot
+ggplot(data, aes(fres, fro)) +
+  geom_point(position = 'jitter', alpha=0.5, color= 'blue') +
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+  stat_ellipse(level = .99, color = "green") +
+  theme_classic()+
+labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
+     x = 'Fresh Food Spending',
+     y = 'Frozen Food Spending') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+```{r}
+#detergeents and delicacies
+ggplot(data, aes(depa, deli)) +
+  geom_point(position = 'jitter', alpha=.5, color = 'red') +
+  scale_y_continuous(trans = 'log10', labels = dollar) +
+  scale_x_continuous(trans = 'log10', labels = dollar) +
+  stat_ellipse(level = .99, color = "green") +   
+  theme_classic() +
+labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
+     x = 'Detergent Spending',
+     y = 'Delicacy Spending') +
+   theme(plot.title = element_text(hjust = 0.5, size=10),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+
+
+## Clustering
+
+
+
+## Limitations
+
+
+
+## Conclusions
+
+
+
+
+## Inspiration for this project
+
+
+
+
+
