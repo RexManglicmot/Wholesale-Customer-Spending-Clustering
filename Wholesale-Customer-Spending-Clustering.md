@@ -266,6 +266,39 @@ ggplot(data, aes(milk, fro)) +
 
 ## Clustering
 
+``` r
+#normalize the data and put into a new object
+# 2 is for the columns (1 is for rows)
+data_mean <- apply(data, 2, mean)
+data_sd <- apply(data, 2, sd)
+data_norm <-scale(data, data_mean, data_sd)
+
+#calc Euclidean Distance
+distance <- dist(data_norm)
+```
+
+``` r
+#cluster dendrogram with complete linkage
+data_hcc <-hclust(distance)
+
+plot(data_hcc)
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+Each observation is treated as a single cluster and they are group with
+the nearest observation and they form a cluster. Then that cluster finds
+anothre observation and they form another cluster. This process repeats
+til you reach all observation form 1 cluster. In our case, when the
+Height=20. This is a **“Complete Linkage”**.
+
+``` r
+#cluster Dendrogram with average linkage
+data_hca <- hclust(distance, method='average')
+plot(data_hca)
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
 ## Limitations
 
 ## Conclusions
@@ -280,6 +313,6 @@ ggplot(data, aes(x=milk, y=groc, size=fres)) +
     theme_classic() 
 ```
 
-![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ## Inspiration for this project
