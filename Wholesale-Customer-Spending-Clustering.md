@@ -325,26 +325,37 @@ plot(as.phylo(data_hca), type = 'fan')
 ![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 Let’s cut the tree by choosing k. I will use the average instead of the
-complete. Since the height is alight above 15, I will choose k to be
-slightly above half, which is 8.
+complete. Since the height is alight above 15, I will choose k to be 2
+since durign EDA I found 2 clusters in the scatterplot detergent vs
+delicacy spending.
 
 ``` r
 #create dendrogram object
 data_hca_object <- as.dendrogram(data_hca)
 
 #color
-data_hca_object_dend <-color_branches(data_hca_object, h=8)
+data_hca_object_dend <-color_branches(data_hca_object, h=2)
 plot(data_hca_object_dend,
      leaflab = 'none',
      ylab = 'Height',
      xlab = 'Clusters',
      main = 'Custering Wholesale Customers') +
-  abline(h = 8, lty = 2)
+  abline(h = 2, lty = 2)
 ```
 
 ![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
     ## integer(0)
+
+``` r
+# #create another one
+# fviz_dend(data_hca_object,
+#           # k = 2,
+#           # k_colors=c('jco'),
+#           # rect=TRUE,
+#           # rect_border='jco',
+#           # rect_fill=TRUE)
+```
 
 ## Limitations
 
@@ -360,6 +371,6 @@ ggplot(data, aes(x=milk, y=groc, size=fres)) +
     theme_classic() 
 ```
 
-![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ## Inspiration for this project
