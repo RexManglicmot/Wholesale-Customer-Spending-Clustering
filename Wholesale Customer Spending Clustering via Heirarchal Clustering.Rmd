@@ -10,6 +10,12 @@ output:
 
 ## Status: Continuing Working Document
 
+Things to do/Questions:
+
+* Zoom in on dendrograms
+* smaller font on x-axis of dendrogram
+* customize dendrogram aesthetics 
+
 ## Introduction
 <center>
 ![](https://bestlifeonline.com/wp-content/uploads/sites/3/2018/10/costco-shopping-aisle.jpg?quality=82&strip=1&resize=1250%2C702)
@@ -248,14 +254,13 @@ plot(data_hca_object_dend,
 ```
 
 ```{r}
+plot(cut(data_hca_object_dend, h=10)$upper)
 
-# #create another one
-# fviz_dend(data_hca_object,
-#           # k = 2,
-#           # k_colors=c('jco'),
-#           # rect=TRUE,
-#           # rect_border='jco',
-#           # rect_fill=TRUE)
+plot(cut(data_hca_object_dend, h=8)$upper)
+
+plot(cut(data_hca_object_dend, h=6)$upper)
+
+plot(cut(data_hca_object_dend, h=2)$upper)
 
 ```
 

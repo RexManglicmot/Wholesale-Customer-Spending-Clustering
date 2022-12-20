@@ -24,6 +24,12 @@ Rex Manglicmot
 
 ## Status: Continuing Working Document
 
+Things to do/Questions:
+
+-   Zoom in on dendrograms
+-   smaller font on x-axis of dendrogram
+-   customize dendrogram aesthetics
+
 ## Introduction
 
 <center>
@@ -350,14 +356,28 @@ plot(data_hca_object_dend,
     ## integer(0)
 
 ``` r
-# #create another one
-# fviz_dend(data_hca_object,
-#           # k = 2,
-#           # k_colors=c('jco'),
-#           # rect=TRUE,
-#           # rect_border='jco',
-#           # rect_fill=TRUE)
+plot(cut(data_hca_object_dend, h=10)$upper)
 ```
+
+![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+
+``` r
+plot(cut(data_hca_object_dend, h=8)$upper)
+```
+
+![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->
+
+``` r
+plot(cut(data_hca_object_dend, h=6)$upper)
+```
+
+![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-17-3.png)<!-- -->
+
+``` r
+plot(cut(data_hca_object_dend, h=2)$upper)
+```
+
+![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-17-4.png)<!-- -->
 
 ## Limitations
 
