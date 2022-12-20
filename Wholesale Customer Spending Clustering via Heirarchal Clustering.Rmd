@@ -1,5 +1,5 @@
 ---
-title: "Wholesale Customer Spending Clustering"
+title: "Wholesale Customer Spending Clustering via Heirarchal Clustering"
 author: "Rex Manglicmot"
 date: "2022-12-19"
 output: 
@@ -16,6 +16,7 @@ output:
 
 </center>
 
+Wholesale is good. 
 
 1) FRESH: annual spending (m.u.) on fresh products (Continuous);
 2) MILK: annual spending (m.u.) on milk products (Continuous);
