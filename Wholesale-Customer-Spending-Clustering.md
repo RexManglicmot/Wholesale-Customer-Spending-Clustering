@@ -59,6 +59,7 @@ library(tidyverse)
 library(janitor)
 library(scales)
 library(ggplot2)
+library(dendextend)
 ```
 
 ## Loading the Data
@@ -285,19 +286,65 @@ plot(data_hcc)
 ```
 
 ![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+
 Each observation is treated as a single cluster and they are group with
 the nearest observation and they form a cluster. Then that cluster finds
 anothre observation and they form another cluster. This process repeats
 til you reach all observation form 1 cluster. In our case, when the
 Height=20. This is a **“Complete Linkage”**.
 
+Let’ try the average.
+
 ``` r
 #cluster Dendrogram with average linkage
 data_hca <- hclust(distance, method='average')
-plot(data_hca)
+plot(data_hca, hang= -1, cex=0.5)
 ```
 
 ![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
+OK, moving forward let’s move on with average.
+
+Let’s find another way to visualize.
+
+``` r
+library(ape)
+```
+
+    ## 
+    ## Attaching package: 'ape'
+
+    ## The following objects are masked from 'package:dendextend':
+    ## 
+    ##     ladderize, rotate
+
+``` r
+plot(as.phylo(data_hca), type = 'fan')
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+
+Let’s cut the tree by choosing k. I will use the average instead of the
+complete. Since the height is alight above 15, I will choose k to be
+slightly above half, which is 8.
+
+``` r
+#create dendrogram object
+data_hca_object <- as.dendrogram(data_hca)
+
+#color
+data_hca_object_dend <-color_branches(data_hca_object, h=8)
+plot(data_hca_object_dend,
+     leaflab = 'none',
+     ylab = 'Height',
+     xlab = 'Clusters',
+     main = 'Custering Wholesale Customers') +
+  abline(h = 8, lty = 2)
+```
+
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+
+    ## integer(0)
 
 ## Limitations
 
@@ -313,6 +360,6 @@ ggplot(data, aes(x=milk, y=groc, size=fres)) +
     theme_classic() 
 ```
 
-![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](Wholesale-Customer-Spending-Clustering_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 ## Inspiration for this project
