@@ -203,6 +203,18 @@ ggplot(data, aes(milk, fro)) +
 
 ## Clustering
 
+Hierarchical clustering treats each observation as distinct cluster. Then it merges two clusters closest together (via distance) and merges those clusers together. this process repeats until all clusters are merged as one. 
+
+![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png)
+
+The main output is a **dendrogram** that shows the relationship between clusters. 
+![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png)
+
+The distance between two clusters is based on the **Euclidean distance**. In order to use it the observation features must be continuous and thus have numeric values. 
+![](https://d2mk45aasx86xg.cloudfront.net/image1_11zon_fa4497e473.webp)
+
+
+
 ```{r}
 #normalize the data and put into a new object
 # 2 is for the columns (1 is for rows)
@@ -238,7 +250,7 @@ library(ape)
 plot(as.phylo(data_hca), type = 'fan')
 ```
 
-Let's cut the tree by choosing k. I will use the average instead of the complete. Since the height is alight above 15, I will choose k to be 2 since durign EDA I found 2 clusters in the scatterplot detergent vs delicacy spending. 
+Let's cut the tree by choosing k. I will use the average instead of the complete. Since the height is alight above 15, I will choose k to be 2 since during EDA I found 2 clusters in the scatterplot detergent vs delicacy spending. 
 ```{r}
 #create dendrogram object
 data_hca_object <- as.dendrogram(data_hca)
