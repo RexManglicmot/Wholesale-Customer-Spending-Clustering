@@ -38,7 +38,13 @@ Things to do/Questions:
 
 </center>
 
-Wholesale is good.
+Clustering is good for many reasons. In terms of business, we can use
+clustering for customer segmentation which can help answer 1) what
+people belong together and 2) how do we group them
+together.^(<https://www.simplilearn.com/tutorials/data-science-tutorial/hierarchical-clustering-in-r>)
+
+In terms of wholesale, we can see what groups of people are buying in
+bulk at a wholesale people.
 
 1)  FRESH: annual spending (m.u.) on fresh products (Continuous);
 2)  MILK: annual spending (m.u.) on milk products (Continuous);
@@ -275,21 +281,37 @@ ggplot(data, aes(milk, fro)) +
 
 ## Clustering
 
-Hierarchical clustering treats each observation as distinct cluster.
-Then it merges two clusters closest together (via distance) and merges
-those clusers together. this process repeats until all clusters are
-merged as one.
+Hierarchical clustering treats each observation as distinct cluster,
+also called **agglomerative**. Then it 1) merges two clusters closest
+together (via distance) and 2) merges those clusters together and
+repeats thsu process until all clusters are merged as one.
 
-![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png)
+<center>
 
+<img
+src="https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png"
+style="width:50.0%" />
+
+</center>
 The main output is a **dendrogram** that shows the relationship between
 clusters.
-![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png)
+<center>
 
+<img
+src="https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png"
+style="width:50.0%" />
+
+</center>
 The distance between two clusters is based on the **Euclidean
 distance**. In order to use it the observation features must be
 continuous and thus have numeric values.
-![](https://d2mk45aasx86xg.cloudfront.net/image1_11zon_fa4497e473.webp)
+<center>
+
+<img
+src="https://d2mk45aasx86xg.cloudfront.net/image1_11zon_fa4497e473.webp"
+style="width:50.0%" />
+
+</center>
 
 ``` r
 #normalize the data and put into a new object
