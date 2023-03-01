@@ -33,6 +33,7 @@ Things to do/Questions:
 -   Zoom in on dendrograms
 -   smaller font on x-axis of dendrogram
 -   customize dendrogram aesthetics
+-   Project purpose is a bit choppy. Need to work on it.
 
 ## Introduction
 
@@ -53,6 +54,20 @@ belong together and 2) how do we group them together.[^1]
 
 In terms of wholesale, we can see what groups of people are buying in
 bulk at a wholesale people.
+
+The purpose of this project is:
+
+1.  Understand the channels where most/least purchases are made allowing
+    organizations to embolden current customer relations
+2.  Consolidate marketing campaign to target new customers
+3.  Numerically calculate potential revenues of current and new
+    customers.
+
+A special acknowledgement to the University of California Irvine Data
+Repository for sharing this dataset publicly.[^2] Further, special
+acknowledgement to Margardia Cardoso for her providing the data
+set.^Margarida G. M. S. Cardoso, margarida.cardoso ‘@’ iscte.pt,
+ISCTE-IUL, Lisbon, Portugal\]
 
 The objective of doing this project is to ascertain what commodities are
 in high demand. By identifying such commodities local and state
@@ -183,8 +198,8 @@ labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
 
 Insights:
 
--   We cans ee from the exhibit above the eclipsed encircles where \~90
-    off the data points are locaed.
+-   We can see from the exhibit above the eclipsed encircles where \~90
+    off the data points are located.
 
 Let’s see we can go even deeper.
 
@@ -231,6 +246,11 @@ labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
 
 ![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
+Insights:
+
+-   We can see from the exhibit above the eclipsed encircles where \~90
+    off the data points are located.
+
 ``` r
 #2d density estimation
 ggplot(data, aes(depa, deli)) +
@@ -247,6 +267,13 @@ ggplot(data, aes(depa, deli)) +
 ```
 
 ![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+Insights:
+
+-   We further see that there are two central points using the density
+    plot roughly near \~\$800 and \~\$8000 in Detergent spending and
+    both points are near \$1000 in Delicacy. What this possibly means is
+    that there could be two groups in the detegent spending.
 
 How much do people spend on milk?
 
@@ -472,3 +499,5 @@ ggplot(data, aes(x=milk, y=groc, size=fres)) +
 ## Inspiration for this project
 
 [^1]: <https://www.simplilearn.com/tutorials/data-science-tutorial/hierarchical-clustering-in-r>
+
+[^2]: <https://archive.ics.uci.edu/ml/datasets/wholesale+customers>

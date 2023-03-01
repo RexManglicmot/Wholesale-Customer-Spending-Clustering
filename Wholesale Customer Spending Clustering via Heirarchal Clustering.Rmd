@@ -15,6 +15,7 @@ Things to do/Questions:
 * Zoom in on dendrograms
 * smaller font on x-axis of dendrogram
 * customize dendrogram aesthetics 
+* Project purpose is a bit choppy. Need to work on it. 
 
 ## Introduction
 <center>
@@ -25,9 +26,16 @@ Understanding consumer behavior is key across all industries and relevant in reg
 
 In terms of wholesale, we can see what groups of people are buying in bulk at a wholesale people.
 
+The purpose of this project is:
+
+1. Understand the channels where most/least purchases are made allowing organizations to embolden current customer relations
+2. Consolidate marketing campaign to target new customers
+3. Numerically calculate potential revenues of current and new customers. 
+
+A special acknowledgement to the University of California Irvine Data Repository for sharing this dataset publicly.^[https://archive.ics.uci.edu/ml/datasets/wholesale+customers] Further, special acknowledgement to Margardia Cardoso for her providing the data set.^Margarida G. M. S. Cardoso, margarida.cardoso '@' iscte.pt, ISCTE-IUL, Lisbon, Portugal]
+
+ 
 The objective of doing this project is to ascertain what commodities are in high demand. By identifying such commodities local and state government can plan initiatives to store and prevent inflation thereby lowering the burden on the end-user consumer.
-
-
 
 1) FRESH: annual spending (m.u.) on fresh products (Continuous);
 2) MILK: annual spending (m.u.) on milk products (Continuous);
@@ -110,7 +118,7 @@ labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
 
 Insights:
 
-* We cans ee from the exhibit above the eclipsed encircles where ~90 off the data points are locaed.
+* We can see from the exhibit above the eclipsed encircles where ~90 off the data points are located.
 
 Let's see we can go even deeper. 
 
@@ -148,6 +156,9 @@ labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
         plot.caption = element_text(hjust = 0.5))
 ```
 
+Insights:
+
+* We can see from the exhibit above the eclipsed encircles where ~90 off the data points are located. 
 
 ```{r}
 #2d density estimation
@@ -164,6 +175,11 @@ ggplot(data, aes(depa, deli)) +
         plot.caption = element_text(hjust = 0.5))
 
 ```
+
+Insights:
+
+* We further see that there are two central points using 
+the density plot roughly near ~$800 and ~$8000 in Detergent spending and both points are near $1000 in Delicacy. What this possibly means is that there could be two groups in the detegent spending.
 
 How much do people spend on milk?
 ```{r, warning=FALSE, message=FALSE}
