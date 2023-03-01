@@ -38,13 +38,22 @@ Things to do/Questions:
 
 </center>
 
-Clustering is good for many reasons. In terms of business, we can use
-clustering for customer segmentation which can help answer 1) what
-people belong together and 2) how do we group them
-together.^(<https://www.simplilearn.com/tutorials/data-science-tutorial/hierarchical-clustering-in-r>)
+Understanding consumer behavior is key across all industries and
+relevant in regions. It allows businesses/organizations to answer
+questions such as if existing customer would likely buy a new product we
+developing in R&D? Or, it can answer consumer purchasing frequencies
+throughout the year? Thus, clustering observations into groups/segments
+has a powerful effect on how business operate. Further there are two
+general priorities businesses need to do: what individuals segments
+belong together and 2) how do we group them together.[^1]
 
 In terms of wholesale, we can see what groups of people are buying in
 bulk at a wholesale people.
+
+The objective of doing this project is to ascertain what commodities are
+in high demand. By identifying such commodities local and state
+government can plan initiatives to store and prevent inflation thereby
+lowering the burden on the end-user consumer.
 
 1)  FRESH: annual spending (m.u.) on fresh products (Continuous);
 2)  MILK: annual spending (m.u.) on milk products (Continuous);
@@ -57,13 +66,6 @@ bulk at a wholesale people.
 7)  CHANNEL: customersâ€™ Channel - Horeca (Hotel/Restaurant/CafÃ©) or
     Retail channel (Nominal)
 8)  REGION: customersâ€™ Region â€“ Lisnon, Oporto or Other (Nominal)
-    Descriptive Statistics:
-
-(Minimum, Maximum, Mean, Std. Deviation) FRESH ( 3, 112151, 12000.30,
-12647.329) MILK (55, 73498, 5796.27, 7380.377) GROCERY (3, 92780,
-7951.28, 9503.163) FROZEN (25, 60869, 3071.93, 4854.673)
-DETERGENTS_PAPER (3, 40827, 2881.49, 4767.854) DELICATESSEN (3, 47943,
-1524.87, 2820.106)
 
 ## Loading the Libraries
 
@@ -293,7 +295,7 @@ src="https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/stat
 style="width:50.0%" />
 
 </center>
-The main output is a **dendrogram** that shows the relationship between
+The main output is a **dendrogram**that shows the relationship between
 clusters.
 <center>
 
@@ -434,3 +436,5 @@ ggplot(data, aes(x=milk, y=groc, size=fres)) +
 ![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ## Inspiration for this project
+
+[^1]: <https://www.simplilearn.com/tutorials/data-science-tutorial/hierarchical-clustering-in-r>
