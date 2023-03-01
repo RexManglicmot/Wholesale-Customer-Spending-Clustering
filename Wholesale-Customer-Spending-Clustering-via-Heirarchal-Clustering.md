@@ -15,7 +15,8 @@ Rex Manglicmot
     Data</a>
 -   <a href="#exploratory-data-analysis"
     id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
--   <a href="#clustering" id="toc-clustering">Clustering</a>
+-   <a href="#hierarchical-clustering"
+    id="toc-hierarchical-clustering">Hierarchical Clustering</a>
     -   <a href="#applications" id="toc-applications">Applications</a>
     -   <a href="#pros" id="toc-pros">Pros</a>
     -   <a href="#cons" id="toc-cons">Cons</a>
@@ -180,6 +181,13 @@ labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
 
 ![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
+Insights:
+
+-   We cans ee from the exhibit above the eclipsed encircles where \~90
+    off the data points are locaed.
+
+Let’s see we can go even deeper.
+
 ``` r
 #2d density estimation
 ggplot(data, aes(fres, fro)) +
@@ -195,6 +203,13 @@ ggplot(data, aes(fres, fro)) +
 ```
 
 ![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+Insights:
+
+-   Using the same exhibit, instead of an eclipse we used a density plot
+    to extrapolate further where majority of the observations are
+    situated. We can can that majority of the dataset spending \~ \$10K
+    in Fresh Food and \~\$2K on Frozen Food.
 
 How much do people spend on detergents (non-foods) versus delicacies
 (food)? Let’s display it.
@@ -284,7 +299,7 @@ ggplot(data, aes(milk, fro)) +
 
 ![](Wholesale-Customer-Spending-Clustering-via-Heirarchal-Clustering_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-## Clustering
+## Hierarchical Clustering
 
 Hierarchical clustering treats each observation as distinct cluster,
 also called **agglomerative**. Then it 1) merges two clusters closest

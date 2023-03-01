@@ -25,7 +25,9 @@ Understanding consumer behavior is key across all industries and relevant in reg
 
 In terms of wholesale, we can see what groups of people are buying in bulk at a wholesale people.
 
-The objective of doing this project is to ascertain what commodities are in high demand. By identifying such commodities local and state government can plan initiatives to store and prevent inflation thereby lowering the burden on the end-user consumer.  
+The objective of doing this project is to ascertain what commodities are in high demand. By identifying such commodities local and state government can plan initiatives to store and prevent inflation thereby lowering the burden on the end-user consumer.
+
+
 
 1) FRESH: annual spending (m.u.) on fresh products (Continuous);
 2) MILK: annual spending (m.u.) on milk products (Continuous);
@@ -105,6 +107,13 @@ labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
    theme(plot.title = element_text(hjust = 0.5, size=10),
         plot.caption = element_text(hjust = 0.5))
 ```
+
+Insights:
+
+* We cans ee from the exhibit above the eclipsed encircles where ~90 off the data points are locaed.
+
+Let's see we can go even deeper. 
+
 ```{r}
 #2d density estimation
 ggplot(data, aes(fres, fro)) +
@@ -118,6 +127,10 @@ ggplot(data, aes(fres, fro)) +
    theme(plot.title = element_text(hjust = 0.5, size=10),
         plot.caption = element_text(hjust = 0.5))
 ```
+
+Insights:
+
+* Using the same exhibit, instead of an eclipse we used a density plot to extrapolate further where majority of the observations are situated. We can can that majority of the dataset spending ~ $10K in Fresh Food and ~$2K on Frozen Food. 
 
 How much do people spend on detergents (non-foods) versus delicacies (food)? Let's display it. 
 ```{r}
@@ -196,7 +209,7 @@ ggplot(data, aes(milk, fro)) +
         plot.caption = element_text(hjust = 0.5))
 ```
 
-## Clustering
+## Hierarchical Clustering
 
 Hierarchical clustering treats each observation as distinct cluster, also called **agglomerative**. Then it 1) merges two clusters closest together (via distance) and 2) merges those clusters together and repeats thsu process until all clusters are merged as one. 
 
