@@ -16,6 +16,9 @@ Rex Manglicmot
 -   <a href="#exploratory-data-analysis"
     id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
 -   <a href="#clustering" id="toc-clustering">Clustering</a>
+    -   <a href="#applications" id="toc-applications">Applications</a>
+    -   <a href="#pros" id="toc-pros">Pros</a>
+    -   <a href="#cons" id="toc-cons">Cons</a>
 -   <a href="#limitations" id="toc-limitations">Limitations</a>
 -   <a href="#conclusions" id="toc-conclusions">Conclusions</a>
 -   <a href="#appendix" id="toc-appendix">Appendix</a>
@@ -314,6 +317,22 @@ src="https://d2mk45aasx86xg.cloudfront.net/image1_11zon_fa4497e473.webp"
 style="width:50.0%" />
 
 </center>
+
+### Applications
+
+### Pros
+
+-   Easy to understand and implement
+-   Works relatively well on small data sets
+-   Do not have to indicate any particular number of clusters (cut at
+    appropiate levels such as whole vs average
+
+### Cons
+
+-   Does not work well with large datasets. This is an issue because
+    many business and organizational datasets tend to be large \>100K
+    and visually condensing is difficult.
+-   Computatonal demanding.
 
 ``` r
 #normalize the data and put into a new object
