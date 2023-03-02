@@ -32,7 +32,7 @@ The purpose of this project is:
 2. Consolidate marketing campaign to target new customers
 3. Numerically calculate potential revenues of current and new customers. 
 
-A special acknowledgement to the University of California Irvine Data Repository for sharing this dataset publicly.^[https://archive.ics.uci.edu/ml/datasets/wholesale+customers] Further, special acknowledgement to Margardia Cardoso for her providing the data set.^Margarida G. M. S. Cardoso, margarida.cardoso '@' iscte.pt, ISCTE-IUL, Lisbon, Portugal]
+A special acknowledgement to the University of California Irvine Data Repository for sharing this dataset publicly.^[https://archive.ics.uci.edu/ml/datasets/wholesale+customers] Further, special acknowledgement to Margardia Cardoso for her providing the data set.^[Margarida G. M. S. Cardoso, margarida.cardoso '@' iscte.pt, ISCTE-IUL, Lisbon, Portugal]
 
  
 The objective of doing this project is to ascertain what commodities are in high demand. By identifying such commodities local and state government can plan initiatives to store and prevent inflation thereby lowering the burden on the end-user consumer.

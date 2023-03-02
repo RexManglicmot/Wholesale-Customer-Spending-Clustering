@@ -65,9 +65,7 @@ The purpose of this project is:
 
 A special acknowledgement to the University of California Irvine Data
 Repository for sharing this dataset publicly.[^2] Further, special
-acknowledgement to Margardia Cardoso for her providing the data
-set.^Margarida G. M. S. Cardoso, margarida.cardoso ‘@’ iscte.pt,
-ISCTE-IUL, Lisbon, Portugal\]
+acknowledgement to Margardia Cardoso for her providing the data set.[^3]
 
 The objective of doing this project is to ascertain what commodities are
 in high demand. By identifying such commodities local and state
@@ -501,3 +499,6 @@ ggplot(data, aes(x=milk, y=groc, size=fres)) +
 [^1]: <https://www.simplilearn.com/tutorials/data-science-tutorial/hierarchical-clustering-in-r>
 
 [^2]: <https://archive.ics.uci.edu/ml/datasets/wholesale+customers>
+
+[^3]: Margarida G. M. S. Cardoso, margarida.cardoso ‘@’ iscte.pt,
+    ISCTE-IUL, Lisbon, Portugal
