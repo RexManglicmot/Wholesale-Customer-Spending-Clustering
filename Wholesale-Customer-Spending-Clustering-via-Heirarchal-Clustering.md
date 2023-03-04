@@ -327,9 +327,13 @@ ggplot(data, aes(milk, fro)) +
 ## Hierarchical Clustering
 
 Hierarchical clustering treats each observation as distinct cluster,
-also called **agglomerative**. Then it 1) merges two clusters closest
+also called **Agglomerative**. Then it 1) merges two clusters closest
 together (via distance) and 2) merges those clusters together and
 repeats thsu process until all clusters are merged as one.
+
+The other type of Hierachical clustering is **Divisive**, a process
+where all the data is grouped into one big cluster and then are
+de-merges into clusters. This is the opposite of agglomerative.
 
 <center>
 
@@ -359,6 +363,13 @@ style="width:50.0%" />
 </center>
 
 ### Applications
+
+-   Bioinfomatics. Group bacteria based on their genes, proteins,
+    receptors,etc. The possibles are endless.
+-   Image processing. Hand written characters can be grouped based on
+    the character shape.
+-   Business. Group customers into segments based on purchase behavior,
+    location, purchange frequency, etc.
 
 ### Pros
 
