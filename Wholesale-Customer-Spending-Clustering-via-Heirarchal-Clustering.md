@@ -3,37 +3,31 @@ Wholesale Customer Spending Clustering via Heirarchal Clustering
 Rex Manglicmot
 2022-12-19
 
--   <a href="#status-continuing-working-document"
-    id="toc-status-continuing-working-document">Status: Continuing Working
-    Document</a>
--   <a href="#introduction" id="toc-introduction">Introduction</a>
--   <a href="#loading-the-libraries" id="toc-loading-the-libraries">Loading
-    the Libraries</a>
--   <a href="#loading-the-data" id="toc-loading-the-data">Loading the
-    Data</a>
--   <a href="#cleaning-the-data" id="toc-cleaning-the-data">Cleaning the
-    Data</a>
--   <a href="#exploratory-data-analysis"
-    id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
--   <a href="#hierarchical-clustering"
-    id="toc-hierarchical-clustering">Hierarchical Clustering</a>
-    -   <a href="#applications" id="toc-applications">Applications</a>
-    -   <a href="#pros" id="toc-pros">Pros</a>
-    -   <a href="#cons" id="toc-cons">Cons</a>
--   <a href="#limitations" id="toc-limitations">Limitations</a>
--   <a href="#conclusions" id="toc-conclusions">Conclusions</a>
--   <a href="#appendix" id="toc-appendix">Appendix</a>
--   <a href="#inspiration-for-this-project"
-    id="toc-inspiration-for-this-project">Inspiration for this project</a>
+- [Status: Continuing Working
+  Document](#status-continuing-working-document)
+- [Introduction](#introduction)
+- [Loading the Libraries](#loading-the-libraries)
+- [Loading the Data](#loading-the-data)
+- [Cleaning the Data](#cleaning-the-data)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Hierarchical Clustering](#hierarchical-clustering)
+  - [Applications](#applications)
+  - [Pros](#pros)
+  - [Cons](#cons)
+- [Limitations](#limitations)
+- [Conclusions](#conclusions)
+- [Appendix](#appendix)
+- [Inspiration for this project](#inspiration-for-this-project)
 
 ## Status: Continuing Working Document
 
 Things to do/Questions:
 
--   Zoom in on dendrograms
--   smaller font on x-axis of dendrogram
--   customize dendrogram aesthetics
--   Project purpose is a bit choppy. Need to work on it.
+- Zoom in on dendrograms
+- smaller font on x-axis of dendrogram
+- customize dendrogram aesthetics
+- Project purpose is a bit choppy. Need to work on it.
+- Need to work on grammar
 
 ## Introduction
 
@@ -196,8 +190,8 @@ labs(title = 'Wholesale Consumer Spending on Fresh Food vs. Frozen Food',
 
 Insights:
 
--   We can see from the exhibit above the eclipsed encircles where \~90
-    off the data points are located.
+- We can see from the exhibit above the eclipsed encircles where ~90 off
+  the data points are located.
 
 Let’s see we can go even deeper.
 
@@ -219,10 +213,10 @@ ggplot(data, aes(fres, fro)) +
 
 Insights:
 
--   Using the same exhibit, instead of an eclipse we used a density plot
-    to extrapolate further where majority of the observations are
-    situated. We can can that majority of the dataset spending \~ \$10K
-    in Fresh Food and \~\$2K on Frozen Food.
+- Using the same exhibit, instead of an eclipse we used a density plot
+  to extrapolate further where majority of the observations are
+  situated. We can can that majority of the dataset spending ~ \$10K in
+  Fresh Food and ~\$2K on Frozen Food.
 
 How much do people spend on detergents (non-foods) versus delicacies
 (food)? Let’s display it.
@@ -246,8 +240,8 @@ labs(title = 'Wholesale Consumer Spending on Detergents vs. Delicacies',
 
 Insights:
 
--   We can see from the exhibit above the eclipsed encircles where \~90
-    off the data points are located.
+- We can see from the exhibit above the eclipsed encircles where ~90 off
+  the data points are located.
 
 ``` r
 #2d density estimation
@@ -268,10 +262,10 @@ ggplot(data, aes(depa, deli)) +
 
 Insights:
 
--   We further see that there are two central points using the density
-    plot roughly near \~\$800 and \~\$8000 in Detergent spending and
-    both points are near \$1000 in Delicacy. What this possibly means is
-    that there could be two groups in the detegent spending.
+- We further see that there are two central points using the density
+  plot roughly near ~\$800 and ~\$8000 in Detergent spending and both
+  points are near \$1000 in Delicacy. What this possibly means is that
+  there could be two groups in the detegent spending.
 
 How much do people spend on milk?
 
@@ -337,18 +331,14 @@ de-merges into clusters. This is the opposite of agglomerative.
 
 <center>
 
-<img
-src="https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png"
-style="width:50.0%" />
+![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png)
 
 </center>
 The main output is a **dendrogram**that shows the relationship between
 clusters.
 <center>
 
-<img
-src="https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png"
-style="width:50.0%" />
+![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png)
 
 </center>
 The distance between two clusters is based on the **Euclidean
@@ -364,26 +354,26 @@ style="width:50.0%" />
 
 ### Applications
 
--   Bioinfomatics. Group bacteria based on their genes, proteins,
-    receptors,etc. The possibles are endless.
--   Image processing. Hand written characters can be grouped based on
-    the character shape.
--   Business. Group customers into segments based on purchase behavior,
-    location, purchange frequency, etc.
+- Bioinfomatics. Group bacteria based on their genes, proteins,
+  receptors,etc. The possibles are endless.
+- Image processing. Hand written characters can be grouped based on the
+  character shape.
+- Business. Group customers into segments based on purchase behavior,
+  location, purchange frequency, etc.
 
 ### Pros
 
--   Easy to understand and implement
--   Works relatively well on small data sets
--   Do not have to indicate any particular number of clusters (cut at
-    appropiate levels such as whole vs average
+- Easy to understand and implement
+- Works relatively well on small data sets
+- Do not have to indicate any particular number of clusters (cut at
+  appropiate levels such as whole vs average
 
 ### Cons
 
--   Does not work well with large datasets. This is an issue because
-    many business and organizational datasets tend to be large \>100K
-    and visually condensing is difficult.
--   Computatonal demanding.
+- Does not work well with large datasets. This is an issue because many
+  business and organizational datasets tend to be large \>100K and
+  visually condensing is difficult.
+- Computatonal demanding.
 
 ``` r
 #normalize the data and put into a new object

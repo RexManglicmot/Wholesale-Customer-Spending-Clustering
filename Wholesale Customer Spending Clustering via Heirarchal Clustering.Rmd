@@ -16,6 +16,7 @@ Things to do/Questions:
 * smaller font on x-axis of dendrogram
 * customize dendrogram aesthetics 
 * Project purpose is a bit choppy. Need to work on it. 
+* Need to work on grammar
 
 ## Introduction
 <center>
@@ -232,12 +233,12 @@ Hierarchical clustering treats each observation as distinct cluster, also called
 The other type of Hierachical clustering is **Divisive**, a process where all the data is grouped into one big cluster and then are de-merges into clusters. This is the opposite of agglomerative. 
 
 <center>
-![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png){width=50%}
+![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Hierarchical-clustering-3-1.png)
 
 </center>
 The main output is a **dendrogram**that shows the relationship between clusters. 
 <center>
-![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png){width=50%} 
+![](https://cdn-dfnaj.nitrocdn.com/xxeFXDnBIOflfPsgwjDLywIQwPChAOzV/assets/static/optimized/rev-a7a8c30/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-11.48.48-am.png)
 
 </center>
 The distance between two clusters is based on the **Euclidean distance**. In order to use it the observation features must be continuous and thus have numeric values. 
